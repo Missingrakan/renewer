@@ -99,21 +99,39 @@
 //}
 //5.求两个数的最大公约数。
 
+//int main()
+//{
+//	int x = 0;
+//	int y = 0;
+//	printf("请输入两个操作数:>");
+//	scanf("%d %d", &x, &y);
+//	while (x != y)
+//	{
+//		if (x>y)
+//			x = x - y;
+//		else
+//			y = y - x;
+//	}
+//	printf("最大公约数为：%d\n", x);
+//
+//	system("pause");
+//	return 0;
+//}
+
 int main()
 {
-	int x = 0;
-	int y = 0;
-	printf("请输入两个操作数:>");
-	scanf("%d %d", &x, &y);
-	while (x != y)
+	int a = 30; 
+	int b = 20;
+	int c = 0;
+	//printf("请输入两个操作数:>");
+	//scanf("%d %d", &a, &b);
+	while (c=a%b)
 	{
-		if (x>y)
-			x = x - y;
-		else
-			y = y - x;
+		a = b;
+		b = c;
 	}
-	printf("最大公约数为：%d\n", x);
+	printf("%d\n", b);
 
-	system("pause");
+	
 	return 0;
 }
