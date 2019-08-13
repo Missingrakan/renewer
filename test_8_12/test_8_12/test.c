@@ -43,38 +43,52 @@
 //}
 //2. 计算1 / 1 - 1 / 2 + 1 / 3 - 1 / 4 + 1 / 5 
 //…… + 1 / 99 - 1 / 100 的值。
-//#include <math.h>
+#include <math.h>
+int main()
+{
+	int i = 0;
+	double sum = 0;
+	for (i = 1; i <= 100; i++)
+	{
+		sum += pow(-1,i+1)*(1.0/i);
+	}
+	printf("%lf\n", sum);
+	return 0;
+}
+
 //int main()
 //{
 //	int i = 0;
-//	double sum = 0;
+//	double sum = 0.0;
+//	int flag = 1;
 //	for (i = 1; i <= 100; i++)
 //	{
-//		sum += pow(-1,i+1)*(1.0/i);
+//		sum += flag*(1.0 / i);
+//		flag = -flag;
 //	}
-//	printf("%lf\n", sum);
+//	printf("sum = %lf\n", sum);
 //	return 0;
 //}
 //3. 编写程序数一下 1到 100 的所有整数中出
 //现多少次数字9。
 //9 19 29 39 49 59 69 79 89 99
 //91 92 93 94 95 96 97 98
-int main()
-{
-	int i = 0;
-	int count = 0;
-	for (i = 1; i < 100; i++)
-	{
-		if (i/10 == 9)
-		{
-			count++;
-		}
-		if (i / 10 == 9)
-		{
-			count++;
-		}
-	}
-	printf("%d\n", count);
-
-	return 0;
-}
+//int main()
+//{
+//	int i = 0;
+//	int count = 0;
+//	for (i = 1; i < 100; i++)
+//	{
+//		if (i/10 == 9)
+//		{
+//			count++;
+//		}
+//		if (i / 10 == 9)
+//		{
+//			count++;
+//		}
+//	}
+//	printf("%d\n", count);
+//
+//	return 0;
+//}
