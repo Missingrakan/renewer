@@ -8,7 +8,7 @@
 //	int i = 0;
 //	printf("请输入一个整数:>");
 //	scanf("%d", &line);
-//	上部分
+//	//上部分
 //	for (i = 1; i <= line; i++)
 //	{
 //		int j = 0;
@@ -22,7 +22,7 @@
 //		}
 //		printf("\n");
 //	}
-//	下部分
+//	//下部分
 //	for (i = line-1; i >= 1; i--)
 //	{
 //		int j = 0;
@@ -31,6 +31,47 @@
 //			printf(" ");
 //		}
 //		for (j = 1; j <= 2 * i - 1; j++)
+//		{
+//			printf("*");
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int line = 0;
+//	int i = 0;
+//	scanf("%d", &line);
+//	//上
+//	for (i = 0; i < line; i++)
+//	{
+//		//打印一行
+//		//打印空格
+//		int j = 0;
+//		for (j = 0; j < line - 1 - i; j++)
+//		{
+//			printf(" ");
+//		}
+//		//打印*
+//		for (j = 0; j < 2 * i + 1; j++)
+//		{
+//			printf("*");
+//		}
+//		printf("\n");
+//	}
+//	//下
+//	for (i = 0; i < line - 1; i++)
+//	{
+//		//打印一行
+//		//打印空格
+//		int j = 0;
+//		for (j = 0; j <= i; j++)
+//		{
+//			printf(" ");
+//		}
+//		//打印*
+//		for (j = 0; j < 2 * (line - 1 - i) - 1; j++)
 //		{
 //			printf("*");
 //		}
@@ -78,7 +119,7 @@
 //int main()
 //{
 //	int i = 0;
-//	for (i = 153; i <= 999; i++)
+//	for (i = 1; i <= 999; i++)
 //	{
 //		Search_Nar(i);
 //	}
@@ -90,19 +131,19 @@
 //其中a是一个数字，
 //例如：2 + 22 + 222 + 2222 + 22222
 
-int main()
-{
-	int a = 0; 
-	int n = 0;
-	int i = 0;
-	int sum = 0;
-	int ret = 0;
-	scanf("%d %d", &a, &n);
-	for (i = 0; i < n; i++)
-	{
-		ret= 10 * ret+a;//2 2*10+2 22*10+22 2222
-		sum += ret;
-	}
-	printf("%d\n", sum);
-	return 0;
-}
+//int main()
+//{
+//	int a = 0; 
+//	int n = 0;
+//	int i = 0;
+//	int sum = 0;
+//	int ret = 0;
+//	scanf("%d %d", &a, &n);
+//	for (i = 0; i < n; i++)
+//	{
+//		ret= 10 * ret+a;//2 2*10+2 22*10+22 2222
+//		sum += ret;
+//	}
+//	printf("%d\n", sum);
+//	return 0;
+//}
