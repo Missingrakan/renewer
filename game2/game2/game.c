@@ -148,7 +148,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 					if (count == 0)
 					{
 						show[x][y] = ' ';
-						win++;
+						//win++;
 						Expand(mine, show, row, col,&win);
 						DisplayBoard(show, row, col);
 					}
