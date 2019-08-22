@@ -1,6 +1,6 @@
-//#define _CRT_SECURE_NO_WARNINGS 1
-//
-//#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include <stdio.h>
 //
 //1.递归和非递归分别实现求第n个斐波那契数。
 //
@@ -89,17 +89,56 @@
 //实现：将参数字符串中的字符反向排列。
 //要求：不能使用C函数库中的字符串操作函数。
 //
-//void reverse_string(char * str)
+#include <assert.h>
+int my_strlen(const char* str)
+{
+	assert(str != NULL);
+	int count = 0;
+	while (*str)
+	{
+		str++;
+		count++;
+	}
+	return count;
+}
+//void reverse_string(char* str)
 //{
-//
+//	assert(str != NULL);
+//	int len = my_strlen(str);
+//	char* left = str;
+//	char* right = str + len - 1;
+//	while (left < right)
+//	{
+//		char tmp = *left;
+//		*left = *right;
+//		*right = tmp;
+//		left++;
+//		right--;
+//	}
 //}
-//int main()
-//{
-//	char arr[] = "abcdef";
-//	reverse_string(arr);
-//	printf("%s\n", arr);
-//	return 0;
-//}
+void reverse_string(char* str)
+{
+	assert(str != NULL);
+	int len = my_strlen(str);
+	char* left = str;
+	char* right = str + len - 1;
+	char tmp = 0;
+
+	tmp = *left;
+	*left = *right;
+	*right = '\0';
+	if (my_strlen(left) >= 2)
+		reverse_string(str + 1);
+	*right = tmp;
+
+}
+int main()
+{
+	char arr[] = "abcdef";
+	reverse_string(arr);
+	printf("%s\n", arr);
+	return 0;
+}
 //5.递归和非递归分别实现strlen
 //#include <assert.h>
 //int my_strlen(const char* str)
@@ -129,33 +168,33 @@
 //	return 0;
 //}
 //6.递归和非递归分别实现求n的阶乘
-int factorial(int n)
-{
-	if (n <= 1)
-		return 1;
-	else
-		return n*factorial(n - 1);
-}
-int factorial(int n)
-{
-	int i = 0;
-	int ret = 1;
-	for (i = 1; i <= n; i++)
-	{
-		ret *= i;
-	}
-	return ret;
-}
-int main()
-{
-	int num = 0;
-	int ret = 0;
-	printf("请输入一个数:>");
-	scanf("%d", &num);
-	ret = factorial(num);
-	printf("%d! = %d\n", num, ret);
-	return 0;
-}
+//int factorial(int n)
+//{
+//	if (n <= 1)
+//		return 1;
+//	else
+//		return n*factorial(n - 1);
+//}
+//int factorial(int n)
+//{
+//	int i = 0;
+//	int ret = 1;
+//	for (i = 1; i <= n; i++)
+//	{
+//		ret *= i;
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	int num = 0;
+//	int ret = 0;
+//	printf("请输入一个数:>");
+//	scanf("%d", &num);
+//	ret = factorial(num);
+//	printf("%d! = %d\n", num, ret);
+//	return 0;
+//}
 //7.递归方式实现打印一个整数的每一位
 //void Print(int n)
 //{
