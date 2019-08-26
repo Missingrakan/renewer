@@ -111,6 +111,10 @@ void Expand(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y, int* pwi
 				Expand(mine, show, x, y - 1,pwin);
 			}
 		}
+		else
+		{
+			show[x][y] = GetMineCount(mine, x, y) + '0';
+		}
 	}
 }
 
@@ -145,14 +149,13 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 				{
 					RemoveMine(mine, x, y);
 					count = GetMineCount(mine, x, y);
-					if (count == 0)
+					if (count == 0 && show[x][y] != ' ')
 					{
 						show[x][y] = ' ';
-						//win++;
-						Expand(mine, show, row, col,&win);
+						Expand(mine, show, x, y, &win);
 						DisplayBoard(show, row, col);
 					}
-					else
+					if (show[x][y] != ' ')
 					{
 						show[x][y] = count + '0';
 						DisplayBoard(show, row, col);
@@ -169,12 +172,12 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 			else
 			{
 				count = GetMineCount(mine,x, y);
-				if (count == 0)
+				if (count == 0 && show[x][y] != ' ')
 				{
 					show[x][y] = ' ';
 					Expand(mine, show, x, y,&win);
 				}
-				else
+				if (show[x][y] != ' ')
 				{
 					show[x][y] = count + '0';
 					win++;

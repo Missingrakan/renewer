@@ -11,7 +11,7 @@
 #define ROWS (ROW+2)
 #define COLS (COL+2)
 
-#define DEFAULT_COUNT 1
+#define DEFAULT_COUNT 10
 
 void InitBoard(char board[ROWS][COLS], int rows, int cols,char set);
 void DisplayBoard(char board[ROWS][COLS], int row, int col);

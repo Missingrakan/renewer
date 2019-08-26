@@ -15,7 +15,7 @@ void game()
 {
 	char ret = 0;
 	printf("开始游戏,loading!!!!!!!!!!!!!!!\n");
-	Sleep(1000);
+	//Sleep(1000);
 	char board[ROW][COL] = { 0 };
 	//初始化
 	InitBoard(board, ROW, COL);
