@@ -49,6 +49,11 @@ void InitContact(struct Contact* pcon);
 void AddContact(Contact* pcon);
 void ShowContact(const Contact* pcon);
 void DelContact(Contact* pcon);
+void SerachContact(Contact* pcon);
+void ModifyContact(Contact* pcon);
+void SortContact(Contact* pcon);
+
+
 
 
 
