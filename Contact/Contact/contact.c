@@ -231,3 +231,11 @@ void SortContact(Contact* pcon)
 		}
 	} while (input);
 }
+
+void EmptyContact(Contact* pcon)
+{
+	assert(pcon);
+	pcon->sz = 0;
+	memset(pcon->data, 0, sizeof(PeoInfo));
+	printf("清空联系人!!!\n");
+}

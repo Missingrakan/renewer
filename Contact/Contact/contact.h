@@ -26,7 +26,8 @@ enum Option
 	SEARCH,
 	MODIFY,
 	SHOW,
-	SORT
+	SORT,
+	EMPTY
 };
 
 typedef struct PeoInfo
@@ -52,6 +53,8 @@ void DelContact(Contact* pcon);
 void SerachContact(Contact* pcon);
 void ModifyContact(Contact* pcon);
 void SortContact(Contact* pcon);
+void EmptyContact(Contact* pcon);
+
 
 
 

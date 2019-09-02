@@ -11,6 +11,7 @@ void menu()
 	printf("******        4. modify    ******\n");
 	printf("******        5. show      ******\n");
 	printf("******        6. sort      ******\n");
+	printf("******        7. empty     ******\n");
 	printf("******        0. exit      ******\n");
 	printf("*********************************\n");
 
@@ -47,6 +48,9 @@ void test()
 			break;
 		case SORT:
 			SortContact(&con);
+			break;
+		case EMPTY:
+			EmptyContact(&con);
 			break;
 		case EXIT:
 			printf("ÍË³ö³ÌÐò!\n");
