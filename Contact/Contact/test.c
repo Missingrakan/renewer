@@ -53,6 +53,8 @@ void test()
 			EmptyContact(&con);
 			break;
 		case EXIT:
+			SaveContact(&con);
+			DestroyContact(&con);
 			printf("ÍË³ö³ÌÐò!\n");
 			break;
 		default:

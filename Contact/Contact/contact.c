@@ -2,21 +2,75 @@
 
 #include "contact.h"
 
+void CheckCapacity(Contact* pcon)
+{
+	if (pcon->sz == pcon->capacity)
+	{
+		//增容
+		PeoInfo* ptr = (PeoInfo *)realloc(pcon->data, (pcon->capacity + 2)*sizeof(PeoInfo));
+		if (ptr != NULL)
+		{
+			pcon->data = ptr;
+			pcon->capacity += 2;
+			printf("增容成功!\n");
+		}
+	}
+}
+
+void LoadContact(Contact* pcon)
+{
+	FILE* pfread = fopen("contact.dat", "rb");
+	PeoInfo tmp = { 0 };
+	assert(pcon);
+	if (pfread == NULL)
+	{
+		printf("加载信息：打开文件失败!\n");
+	}
+	//加载信息
+	while (fread((&tmp),sizeof(PeoInfo),1,pfread))
+	{
+		CheckCapacity(pcon);
+		pcon->data[pcon->sz] = tmp;
+		pcon->sz++;
+	}
+	
+	fclose(pfread);
+	pfread = NULL;
+}
+
 void InitContact(struct Contact* pcon)
 {
 	assert(pcon);
-	memset(pcon->data, 0, sizeof(PeoInfo));
+	pcon->sz = 0;
+	//memset(pcon->data, 0, sizeof(PeoInfo));
+	pcon->data = (PeoInfo *)calloc(DEFAULT_SIZE, sizeof(PeoInfo));
+	if (pcon->data == NULL)
+	{
+		printf("%s\n", strerror(errno));//打印错误信息
+	}
+	pcon->capacity = DEFAULT_SIZE;
+	//加载文件
+	LoadContact(pcon);
+}
+
+void DestroyContact(Contact* pcon)
+{
+	free(pcon->data);
+	pcon->data = NULL;
+	pcon->capacity = 0;
 	pcon->sz = 0;
 }
+
 
 void AddContact(Contact* pcon)
 {
 	assert(pcon);
-	if (pcon->sz == MAX)
+	/*if (pcon->sz == MAX)
 	{
 		printf("通讯录已满,无法添加!\n");
 		return;
-	}
+	}*/
+	CheckCapacity(pcon);
 	//录入信息
 	printf("请输入姓名:>");
 	scanf("%s", pcon->data[pcon->sz].name);
@@ -238,4 +292,24 @@ void EmptyContact(Contact* pcon)
 	pcon->sz = 0;
 	memset(pcon->data, 0, sizeof(PeoInfo));
 	printf("清空联系人!!!\n");
+}
+
+void SaveContact(Contact* pcon)
+{
+	FILE* pfWrite = fopen("contact.dat", "wb");
+	int i = 0;
+	assert(pcon);
+	if (pfWrite == NULL)
+	{
+		printf("保存信息：打开文件失败!\n");
+		return;
+	}
+	//保存信息
+	for (i = 0; i < pcon->sz; i++)
+	{
+		fwrite(pcon->data + i, sizeof(PeoInfo), 1, pfWrite);
+	}
+	//关闭文件
+	fclose(pfWrite);
+	pfWrite = NULL;
 }
